@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Event Planner</h1>
+        <nav>
+            <div class="profile">
+                <span class="profile-name"></span>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <main>
+            <div class="calendar">
+                <div class="toolbar">
+                    <button class="nav-btn" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <div class="current-month">November 2023</div>
+                    <button class="nav-btn" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar__body"></div>
+            </div>
+        </main>
+
+        <aside class="c-aside">
+            <a class="c-add o-btn js-event__add" href="javascript:;">Add Event <span class="fa fa-plus"></span></a>
+            <div class="c-aside__day">
+                <span class="c-aside__num"></span> 
+                <span class="c-aside__month"></span>
+            </div>
+            <div class="c-aside__eventList">
+            </div>
+            <div class="event-form">
+                <h3>Event Details</h3>
+                <input type="text" id="eventTitle" placeholder="Event Title">
+                <textarea id="eventDescription" placeholder="Event Description"></textarea>
+                <div class="event-dates">
+                    <div>
+                        <label>Start Date:</label>
+                        <div id="startDateContainer" class="date-select-container"></div>
+                    </div>
+                    <div>
+                        <label>End Date:</label>
+                        <div id="endDateContainer" class="date-select-container"></div>
+                    </div>
+                </div>
+                <div class="event-type">
+                    <label>Event Type:</label>
+                    <select id="eventType">
+                        <option value="task--important">Important</option>
+                        <option value="task--task">Task</option>
+                        <option value="task--recreational">Recreational</option>
+                        <option value="task--regular">Regular</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button id="submitEvent">Add Event</button>
+                    <button id="cancelEvent">Cancel</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>© 2025 Event Planner. All rights reserved.</p>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

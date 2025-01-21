@@ -1,0 +1,1500 @@
+/* Reset default margin and padding for all elements. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set full height for html and body. */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Style for the header section. */
+header {
+    width: 100%;
+    padding: 1em;
+    font-size: 140%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: opacity .2s ease-in-out;
+    text-align: center;
+    background-color: white;
+    color: #A8B2B9;
+    z-index: 1000;
+    box-shadow: rgba(0,0,0,.05) 0 3px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the header title. */
+header h1 {
+    font-weight: 600;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    color: var(--red);
+}
+
+/* Style for navigation links in the header. */
+header nav a {
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    opacity: .7;
+    padding: 0 .5em;
+    color: #A8B2B9;
+    transition: opacity .2s ease-in-out;
+}
+
+/* Hover and focus effects for navigation links. */
+header nav a:hover,
+header nav a:focus {
+    opacity: 1;
+    color: var(--red);
+}
+
+/* Style for the main section. */
+section {
+    height: 100vh;
+    background: white;
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for large text spans in the section. */
+section span {
+    margin: 0;
+    font-size: 400%;
+    text-align: center;
+    line-height: 1;
+    padding-top: calc(50vh - 20pt);
+    display: block;
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* Responsive styles for header on larger screens. */
+@media (min-width: 500px) {
+    header {
+        text-align: left;
+    }
+    header nav {
+        float: right;
+    }
+}
+
+/* Sticky header styles for larger screens. */
+@media screen and (min-width: 850px) {
+    @supports (position: sticky) {
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+/* Layout for the main wrapper. */
+.wrapper {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    height: calc(100vh - 120px);
+    min-height: 600px;
+}
+
+/* Grid layout for the wrapper on larger screens. */
+@media screen and (min-width: 850px) {
+    .wrapper {
+        grid-template-columns: 200px 5fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "sidebar content";
+    }
+}
+
+/* Style for the main content area. */
+main {
+    flex: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Style for the sidebar. */
+sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: "logo menu avatar"
+                         "copyright menu avatar";
+}
+
+/* Center logo in the sidebar. */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for copyright text in the sidebar. */
+.copyright {
+    text-align: center;
+}
+
+/* Style for avatar section in the sidebar. */
+.avatar {
+    grid-area: avatar;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+/* Style for avatar name in the sidebar. */
+.avatar__name {
+    flex: 1;
+    text-align: right;
+    margin-right: 1em;
+}
+
+/* Style for avatar image in the sidebar. */
+.avatar__img > img {
+    display: block;
+}
+
+/* Style for menu in the sidebar. */
+.menu {
+    grid-area: menu;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Style for menu text in the sidebar. */
+.menu__text {
+    display: none;
+}
+
+/* Responsive styles for sidebar on larger screens. */
+@media screen and (min-width: 850px) {
+    sidebar {
+        grid-template-areas: "logo"
+                             "avatar"
+                             "menu"
+                             "copyright";
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto 1fr 50px;
+    }
+    
+    .menu {
+        flex-direction: column;
+        align-items: normal;
+        justify-content: flex-start;
+    }
+    .menu__text {
+        display: inline-block;
+    }
+    .avatar {
+        flex-direction: column;
+    }
+    .avatar__name {
+        margin: 1em 0;
+    }
+    .avatar__img > img {
+        border-radius: 50%;
+    }
+}
+
+/* Style for the toolbar in the main content area. */
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    gap: 24px;
+}
+
+/* Style for navigation buttons in the toolbar. */
+.nav-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for navigation buttons. */
+.nav-btn:hover {
+    background-color: rgba(237, 84, 84, 0.1);
+    color: var(--red);
+}
+
+/* Active state for navigation buttons. */
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Style for the calendar container. */
+.calendar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Style for the calendar header. */
+.calendar__header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+/* Style for day names in the calendar header. */
+.day-name {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Style for the calendar body. */
+.calendar__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Style for weeks in the calendar. */
+.calendar__weeks {
+    flex: 1;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    min-height: 0;
+}
+
+/* Style for individual weeks in the calendar. */
+.calendar__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    min-height: 0;
+}
+
+/* Style for individual days in the calendar. */
+.calendar__day {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 14px 20px;
+    text-align: right;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 500;
+    box-sizing: border-box;
+    color: #000000;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Hover effect for calendar days. */
+.calendar__day:hover {
+    background-color: #f8f8f8;
+}
+
+/* Style for tasks/events in the calendar. */
+.task {
+    border-left-width: 3px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    border-left-style: solid;
+    font-size: 14px;
+    position: relative;
+    text-align: left;
+    border-radius: 4px;
+    z-index: 100;
+    bottom: 5px;
+}
+
+/* Style for stretched tasks/events. */
+.task--stretch {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    margin: 0;
+    z-index: 100;
+    bottom: 5px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/* Style for warning tasks/events. */
+.task--warning.task--stretch {
+    background: #fef0db;
+    border: 1px solid #fdb44d;
+    color: #ad7c2b;
+}
+
+/* Style for danger tasks/events. */
+.task--danger.task--stretch {
+    background: rgba(250, 96, 126, 0.1);
+    border: 1px solid #fa607e;
+    color: #fa607e;
+}
+
+/* Style for info tasks/events. */
+.task--info.task--stretch {
+    background: rgba(71, 134, 255, 0.1);
+    border: 1px solid #4786ff;
+    color: #4786ff;
+}
+
+/* Style for primary tasks/events. */
+.task--primary.task--stretch {
+    background: var(--red);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(237, 84, 84, 0.2);
+}
+
+/* Style for important tasks/events. */
+.task--important {
+    border-left: 4px solid #dc3545;
+    background: rgba(220, 53, 69, 0.8);
+    color: white;
+}
+
+/* Style for regular tasks/events. */
+.task--regular {
+    border-left: 4px solid #6c757d;
+    background: rgba(108, 117, 125, 0.8);
+    color: white;
+}
+
+/* Style for recreational tasks/events. */
+.task--recreational {
+    border-left: 4px solid #198754;
+    background: rgba(25, 135, 84, 0.8);
+    color: white;
+}
+
+/* Style for task details. */
+.task__detail {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    background: white;
+    border: 1px solid rgba(166, 168, 179, 0.2);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    z-index: 1000;
+    min-width: 250px;
+    pointer-events: auto;
+}
+
+/* Arrow styles for task details. */
+.task__detail:before,
+.task__detail:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 20px;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+/* Border color for task detail arrow. */
+.task__detail:before {
+    border-bottom-color: rgba(166, 168, 179, 0.2);
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+/* Background color for task detail arrow. */
+.task__detail:after {
+    border-bottom-color: white;
+    border-width: 7px;
+    margin-left: -7px;
+}
+
+/* Hover effect for tasks. */
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Display task details on hover or active state. */
+.task:hover .task__detail,
+.task.active .task__detail {
+    display: block;
+}
+
+/* Style for task detail header. */
+.task__detail h2 {
+    font-size: 15px;
+    margin: 0 0 10px;
+    color: #51565d;
+}
+
+/* Style for task detail paragraphs. */
+.task__detail p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Style for disabled days in the calendar. */
+.day--disabled {
+    color: #999;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Style for the event form. */
+.event-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    width: 400px;
+    max-width: 90vw;
+}
+
+/* Style for event form headings. */
+.event-form h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Style for inputs, textareas, and selects in the event form. */
+.event-form input,
+.event-form textarea,
+.event-form select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #e1e1e1;
+    border-radius: 6px;
+    font-family: Montserrat, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus effect for inputs, textareas, and selects. */
+.event-form input:focus,
+.event-form textarea:focus,
+.event-form select:focus {
+    border-color: var(--red);
+    outline: none;
+}
+
+/* Style for date selection in the event form. */
+.event-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Style for event type selection in the event form. */
+.event-type {
+    margin-bottom: 15px;
+}
+
+/* Style for labels in the event form. */
+.event-type label,
+.event-dates label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Style for buttons in the event form. */
+.event-form button {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+    margin-right: 10px;
+}
+
+/* Style for the last button in the event form. */
+.event-form button:last-child {
+    background: #e1e1e1;
+    color: #666;
+}
+
+/* Hover effect for buttons in the event form. */
+.event-form button:hover {
+    opacity: 0.9;
+}
+
+/* Style for event items. */
+.event-item {
+    font-size: 0.8em;
+    background: var(--red);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect for event items. */
+.event-item:hover {
+    transform: translateX(2px);
+}
+
+/* Style for the current month display. */
+.current-month {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+/* Define the main color variable. */
+:root {
+    --red: #ED5454;
+}
+
+/* Style for the body text. */
+body {
+    font-family: Montserrat;
+    font-weight: 100;
+    color: #333;
+}
+
+/* Style for the sidebar. */
+sidebar {
+    background-color: white;
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the main content area. */
+main {
+    background-color: #FCFBFC;
+}
+
+/* Style for avatar name in the sidebar. */
+.avatar__name {
+    font-size: 0.8rem;
+}
+
+/* Style for menu items in the sidebar. */
+.menu__item {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 16px 16px 16px 14px;
+    border-left: 4px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    transition: color ease 0.3s;
+}
+
+/* Active state for menu items. */
+.menu__item--active .menu__icon {
+    color: var(--red);
+}
+.menu__item--active .menu__text {
+    color: black;
+}
+
+/* Hover effect for menu items. */
+.menu__item:hover {
+    color: black;
+}
+
+/* Style for menu icons. */
+.menu__icon {
+    font-size: 1.3rem;
+}
+
+/* Responsive styles for menu icons on larger screens. */
+@media screen and (min-width: 850px) {
+    .menu__icon {
+        font-size: 0.9rem;
+        padding-right: 16px;
+    }
+    .menu__item--active {
+        border-left: 4px solid var(--red);
+        box-shadow: inset 10px 0px 17px -13px var(--red);
+    }
+}
+
+/* Style for copyright text in the sidebar. */
+.copyright {
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+/* Style for calendar header text. */
+.calendar__header > div {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Update text colors for body. */
+body {
+    font-family: Montserrat;
+    font-weight: 100;
+    color: #333;
+}
+
+/* Add hover effects for navigation links. */
+header nav a {
+    color: #333;
+}
+
+/* Hover effect for navigation links. */
+header nav a:hover {
+    color: var(--red);
+}
+
+/* Style for calendar event days. */
+.calendar__day {
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Hover effect for calendar event days. */
+.calendar__day:hover {
+    background-color: #f8f8f8;
+}
+
+/* Style for the event form. */
+.event-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
+}
+
+/* Active state for the event form. */
+.event-form.active {
+    display: block;
+}
+
+/* Style for inputs and textareas in the event form. */
+.event-form input,
+.event-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+}
+
+/* Style for buttons in the event form. */
+.event-form button {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for buttons in the event form. */
+.event-form button:hover {
+    opacity: 0.9;
+}
+
+/* Style for event items. */
+.event-item {
+    font-size: 0.8em;
+    background: var(--red);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+/* Hover effect for menu items. */
+.menu__item {
+    color: #333;
+}
+
+/* Hover effect for menu items and icons. */
+.menu__item:hover,
+.menu__item:hover .menu__icon,
+.menu__item:hover .menu__text {
+    color: var(--red);
+}
+
+/* Active state for menu items and icons. */
+.menu__item--active,
+.menu__item--active .menu__icon,
+.menu__item--active .menu__text {
+    color: var(--red);
+}
+
+/* Style for multi-day events. */
+.task--start {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+}
+
+/* Style for middle days of multi-day events. */
+.task--middle {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Style for end days of multi-day events. */
+.task--end {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+}
+
+/* Style for date select container. */
+.date-select-container {
+    display: flex;
+    gap: 10px;
+}
+
+/* Style for selects in the date select container. */
+.date-select-container select {
+    padding: 8px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background: white;
+}
+
+/* Focus effect for selects in the date select container. */
+.date-select-container select:focus {
+    border-color: var(--red);
+    outline: none;
+}
+
+/* Style for task detail header. */
+.task__detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Style for delete event button. */
+.delete-event-btn {
+    background: none;
+    border: none;
+    color: #ff4444;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect for delete event button. */
+.delete-event-btn:hover {
+    transform: scale(1.2);
+    color: #ff0000;
+}
+
+/* Style for continued events. */
+.task--continues {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-right: -2px;
+    padding-right: 8px;
+}
+
+/* Style for continued events. */
+.task--continued {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -2px;
+    padding-left: 8px;
+}
+
+/* Style for disabled calendar state. */
+.calendar--disabled .calendar__day {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Ensure task detail stays visible when active. */
+.task.active .task__detail {
+    display: block;
+}
+
+/* Remove hover display to prevent flickering. */
+.task:hover .task__detail {
+    display: none;
+}
+
+/* Ensure task detail is visible when active and hovered. */
+.task.active:hover .task__detail {
+    display: block;
+}
+
+/* Style for profile section in the header. */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Style for profile name in the header. */
+.profile-name {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Style for logout button in the header. */
+.logout-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover effect for logout button. */
+.logout-btn:hover {
+    background: #d63939;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Active state for logout button. */
+.logout-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Layout adjustments for the main wrapper. */
+.wrapper {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Style for the main content area. */
+main {
+    flex: 2;
+}
+
+/* Style for the sidebar. */
+.c-aside {
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    min-height: 650px;
+    overflow: hidden;
+}
+
+/* Style for the add event button. */
+.c-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for the add event button. */
+.c-add:hover {
+    background: #d63939;
+}
+
+/* Style for the add event button in edit mode. */
+.c-add.edit-mode {
+    background: var(--red);
+}
+
+/* Hover effect for the add event button in edit mode. */
+.c-add.edit-mode:hover {
+    background: #d63939;
+}
+
+/* Capitalize text for the add event button. */
+.c-add {
+    text-transform: capitalize;
+}
+
+/* Style for the day display in the sidebar. */
+.c-aside__day {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Style for the day number in the sidebar. */
+.c-aside__num {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+}
+
+/* Style for the month name in the sidebar. */
+.c-aside__month {
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Style for the event list in the sidebar. */
+.c-aside__eventList {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    min-height: 0;
+}
+
+/* Style for event items in the sidebar. */
+.event-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--red);
+}
+
+/* Style for event item headings. */
+.event-item h3 {
+    margin: 0 0 10px 0;
+    color: var(--red);
+}
+
+/* Style for event item paragraphs. */
+.event-item p {
+    margin: 5px 0;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Style for event dates in the sidebar. */
+.event-dates {
+    font-size: 0.9em;
+    color: #000000;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Style for the delete event button. */
+.delete-event-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+/* Hover effect for the delete event button. */
+.delete-event-btn:hover {
+    background: #c82333;
+}
+
+/* Style for no events message. */
+.no-events {
+    text-align: center;
+    color: #000000;
+    padding: 20px;
+    font-weight: 500;
+}
+
+/* Style for the event form in the sidebar. */
+.event-form {
+    display: none;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #eee;
+    width: 100%;
+    position: relative;
+}
+
+/* Style for event form headings. */
+.event-form h3 {
+    color: var(--red);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Style for inputs, textareas, and selects in the event form. */
+.event-form input,
+.event-form textarea,
+.event-form select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+/* Focus effect for inputs, textareas, and selects. */
+.event-form input:focus,
+.event-form textarea:focus,
+.event-form select:focus {
+    border-color: var(--red);
+    outline: none;
+}
+
+/* Style for textareas in the event form. */
+.event-form textarea {
+    height: 80px;
+    resize: vertical;
+    min-height: 60px;
+    max-height: 150px;
+}
+
+/* Style for date select container in the event form. */
+.event-form .date-select-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+/* Style for selects in the date select container. */
+.event-form .date-select-container select {
+    margin: 0;
+    padding: 6px;
+    font-size: 13px;
+}
+
+/* Style for labels in the event form. */
+.event-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Style for form actions in the event form. */
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+/* Style for buttons in the form actions. */
+.form-actions button {
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+/* Style for the submit event button. */
+#submitEvent {
+    background: var(--red);
+    color: white;
+}
+
+/* Hover effect for the submit event button. */
+#submitEvent:hover {
+    background: #d63939;
+}
+
+/* Style for the cancel event button. */
+#cancelEvent {
+    background: #6c757d;
+    color: white;
+}
+
+/* Hover effect for the cancel event button. */
+#cancelEvent:hover {
+    background: #5a6268;
+}
+
+/* Style for date selection in the event form. */
+.event-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Style for the sidebar layout. */
+.c-aside {
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+/* Style for the event list in the sidebar. */
+.c-aside__eventList {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    min-height: 0;
+}
+
+/* Style for important event items. */
+.event-item.task--important {
+    border-left: 4px solid #dc3545;
+    background: #fff;
+    color: #333;
+}
+
+/* Style for task event items. */
+.event-item.task--task {
+    border-left: 4px solid #0d6efd;
+    background: #fff;
+    color: #333;
+}
+
+/* Style for recreational event items. */
+.event-item.task--recreational {
+    border-left: 4px solid #198754;
+    background: #fff;
+    color: #333;
+}
+
+/* Style for regular event items. */
+.event-item.task--regular {
+    border-left: 4px solid #6c757d;
+    background: #fff;
+    color: #333;
+}
+
+/* Style for selected days in the calendar. */
+.calendar__day.selected {
+    background-color: rgba(237, 84, 84, 0.1);
+    font-weight: bold;
+    color: var(--red);
+}
+
+/* Style for today's date in the calendar. */
+.calendar__day--today {
+    background-color: rgba(237, 84, 84, 0.1);
+    color: var(--red);
+    font-weight: bold;
+    position: relative;
+}
+
+/* Style for today's date indicator. */
+.calendar__day--today::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+/* Style for the authentication header. */
+.auth-header h1 {
+    text-align: center;
+    width: 100%;
+    color: var(--red);
+}
+
+/* Style for the footer. */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f0f0f0;
+    color: #000;
+    width: 100%;
+    box-shadow: none;
+    font-size: 0.9em;
+    position: relative;
+    border-top: 1px solid #ddd;
+}
+
+/* Mobile responsive styles for the main wrapper. */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+        position: relative;
+    }
+
+    main {
+        flex: none;
+        height: calc(100vh - 80px);
+        min-height: 500px;
+    }
+
+    .calendar {
+        height: 100%;
+    }
+
+    .calendar__day {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .toolbar {
+        padding: 15px 0;
+    }
+
+    .current-month {
+        font-size: 1.2em;
+        min-width: 150px;
+    }
+
+    /* Header responsive styles. */
+    header {
+        padding: 10px 15px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .profile {
+        gap: 10px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Mobile sidebar styles. */
+    .c-aside {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 70vh;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .c-aside.active {
+        transform: translateY(0);
+    }
+
+    /* Add a handle for the sliding panel. */
+    .c-aside::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background-color: #ddd;
+        border-radius: 2px;
+    }
+
+    /* Overlay when sidebar is active. */
+    .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .mobile-overlay.active {
+        display: block;
+    }
+
+    /* Adjust event form for mobile. */
+    .event-form {
+        width: 100%;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .event-form .date-select-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Task styles for mobile. */
+    .task {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .task__detail {
+        width: 90vw;
+        max-width: none;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .calendar__week {
+        min-height: 80px;
+    }
+    
+    .wrapper {
+        height: auto;
+    }
+    
+    main {
+        height: calc(100vh - 80px);
+    }
+}
+
+/* General improvements for touch devices. */
+@media (hover: none) {
+    .task:hover {
+        transform: none;
+    }
+
+    .task:active {
+        transform: translateY(-2px);
+    }
+
+    .calendar__day:hover {
+        background-color: transparent;
+    }
+
+    .calendar__day:active {
+        background-color: #f8f8f8;
+    }
+}
+
+/* Ensure minimum calendar height. */
+.calendar {
+    min-height: 500px;
+}
+
+/* Update calendar day sizing for better mobile view. */
+.calendar__week {
+    min-height: 80px;
+    height: auto;
+}
+
+/* Responsive styles for smaller screens. */
+@media screen and (max-width: 480px) {
+    .calendar__day {
+        font-size: 11px;
+        padding: 4px;
+    }
+
+    .task {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+
+    .nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1em;
+    }
+}
