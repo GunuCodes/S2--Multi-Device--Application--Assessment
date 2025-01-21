@@ -17,7 +17,7 @@ This app was somehow way more stressful to make than the Unity game project baha
 
 2. **Clone with Git** (if you have Git installed):
    ```bash
-   git clone https://github.com/GunuCodes/S2--Multi-Device--Application
+   git clone https://github.com/GunuCodes/S2--Multi-Device--Application--Assessment
    ```
 
 ### Setting Up the Application
