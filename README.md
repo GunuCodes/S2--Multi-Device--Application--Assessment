@@ -43,7 +43,7 @@ This app was somehow way more stressful to make than the Unity game project baha
    ```
    - Start the website (in a new terminal):
    ```bash
-   cd ../public
+   cd public
    npx serve
    ```
 
